@@ -20,7 +20,7 @@ pip install gdown
 # Create a new folder
 mkdir data
 
-# Download NewsPH-NLI Dataset
+# Download NewsPH-NLI Dataset (preprocessed)
 gdown --id 1-qOfNQy-piiaz8BcDfnS-ILlYio5S_g2
 
 # Unzip
