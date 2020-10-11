@@ -2,6 +2,8 @@ import pickle
 from fastai.text.all import *
 import sys
 import os
+import requests
+
 
 
 # This sets the random seed manually
@@ -54,9 +56,12 @@ def evaluate(args, data_path):
 
     # Create model
     print("creating model...")
+    old_stdout = sys.stdout  # backup current stdout
+    sys.stdout = open(os.devnull, "w")
     learn = text_classifier_learner(
         test_dl, AWD_LSTM, wd=0.1, metrics=accuracy).to_fp16()
-
+    sys.stdout = old_stdout  # reset old stdout
+    
     # If want to load classifier model
     if args.classifier_path:
         print("loading classifier model...")
@@ -75,7 +80,10 @@ def evaluate(args, data_path):
     test_acc = res[1]
 
     return test_loss, test_acc
-    
+
+def preprocess():
+    pass
+
 # training script
 def run_finetuning(args):
 
@@ -125,7 +133,7 @@ def run_finetuning(args):
         learn = text_classifier_learner(classifier_dataloader, AWD_LSTM, wd=args.weight_decay, metrics=accuracy).to_fp16()
         sys.stdout = old_stdout  # reset old stdout
 
-        # load encoder from pretrained LM
+        # load encoder from finetuned LM
         print(f"loading encoder at {args.pretrained_path}")
         learn.load_encoder(args.pretrained_path)
 

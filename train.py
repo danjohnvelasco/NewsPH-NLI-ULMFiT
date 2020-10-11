@@ -6,12 +6,12 @@ def main():
     parser = argparse.ArgumentParser()
 
     # Dataset parameters
-    parser.add_argument('pretrained_path', type=str,
-                        help='<filename>.pkl of the pretrained language model.')
-    parser.add_argument('vocab_path', type=str,
-                        help='Path to the vocab pkl (e.g. "dir/vocab.pkl"')
+    parser.add_argument('--pretrained_path', type=str,
+                        help='Pre-trained fine-tuned language model located at models/<filename>.pth')
+    parser.add_argument('--vocab_path', type=str,
+                        help='Path should be models/<filename>.pkl')
     parser.add_argument('--classifier_path', type=str,
-                        help='<filename>.pkl of the classifier model (for evaluation).')
+                        help='<filename>.pth of the classifier model (for evaluation).')
     parser.add_argument('--checkpoint', type=str,
                         help='Name of output model/checkpoint to evaluate on test data.')
     parser.add_argument('--preloaded_data_path', type=str,
@@ -35,7 +35,7 @@ def main():
     parser.add_argument('--weight_decay', type=float,
                         default=0.0, help='Weight decay.')
     parser.add_argument('--lr_max', type=float,
-                        default=10e-3, help='Max learning rate.')
+                        default=0.0, help='Max learning rate.')
     parser.add_argument('--epochs', type=str, default='4;2;2;2;1',
                         help='Number of epochs to train for 5 stages of gradual unfreezing. Must pass 5 values separated by ";". (e.g. 4;2;2;2;1, Stage 1 trains for 4 epochs. Stage 5 trains for 1 epoch.')
     parser.add_argument('--seed', type=int, default=42, help='Set random seed.')
