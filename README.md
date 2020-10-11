@@ -39,7 +39,8 @@ gdown --id 1-PI65kBGD0i2hE3KL5hjjCGDt_mMFKMs
 unzip finetuned.zip -d models
 
 # Finally
-You should see two files: lm_fintuned_enc.pth (encoder) and news_vocab.pkl (vocab). This will be used later in classifier finetuning.
+You should see two files: lm_fintuned_enc.pth (encoder) and news_vocab.pkl (vocab). 
+This will be used later in classifier finetuning.
 ```
 
 ### Textual Entailment Task
