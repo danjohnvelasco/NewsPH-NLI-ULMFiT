@@ -1,9 +1,9 @@
 # NewsPH-NLI-ULMFiT
-This repository contains script to train and evaluate AWD-LSTM on NewsPH-NLI dataset.
 This is an accompanying repository to the paper:
 ### [Investigating the True Performance of Transformers in Low-Resource Languages: A Case Study in Automatic Corpus Creation](https://arxiv.org/abs/2010.11574)
 <sup> Jan Christian Blaise Cruz, Jose Kristian Resabal, James Lin, Dan John Velasco, Charibeth Cheng <sup>
 
+This repository contains script to train and evaluate AWD-LSTM on NewsPH-NLI dataset.
 
 
 # Requirements
